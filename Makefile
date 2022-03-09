@@ -28,16 +28,22 @@ run: $(BIN)
 test: $(BIN)
 	@ echo "Testing option \"version\""
 	./$(BIN) version
-	@ echo 
+	@ echo
 	@ echo "Testing option \"-v\""
 	./$(BIN) -v
-	@ echo 
+	@ echo
 	@ echo "Testing option \"help\""
 	./$(BIN) help
-	@ echo 
+	@ echo
 	@ echo "Testing option \"-h\""
 	./$(BIN) -h
-	@ echo 
+	@ echo
+	@ echo "Testing option \"adb\""
+	./$(BIN) adb
+	@ echo
+	@ echo "Testing option \"log\""
+	./$(BIN) log
+	@ echo
 	@ echo "Testing a invalid option:"
 	./$(BIN) invalid && false || true
 	
