@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
-
-	"github.com/joho/godotenv"
 )
+
+var Version = "0.0.0"
 
 func help() {
 	fmt.Println("Usage:")
@@ -21,20 +21,7 @@ func help() {
 }
 
 func version() {
-	version := os.Getenv("GO_TEST_LOG_VERSION")
-	if version == "" {
-		version = "0.0.1"
-	}
-	fmt.Printf("Go Test Log Version: %s\n", version)
-}
-
-func loadEnv() {
-	godotenv.Load()
-	if os.Getenv("GO_TEST_LOG_VERSION") == "" {
-		fmt.Println("App version not found")
-		fmt.Println("Try set GO_TEST_LOG_VERSION on .env file, or set this variable on environment")
-		os.Exit(1)
-	}
+	fmt.Printf("Go Test Log Version: %s\n", Version)
 }
 
 func invalidParam(param string) {
@@ -43,7 +30,6 @@ func invalidParam(param string) {
 }
 
 func main() {
-	loadEnv()
 	argv := os.Args[1:]
 	for _, item := range argv {
 		switch item {
@@ -55,6 +41,7 @@ func main() {
 			os.Exit(0)
 		default:
 			invalidParam(item)
+			os.Exit(1)
 		}
 	}
 }
