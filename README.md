@@ -46,7 +46,7 @@ $ make install
 ```
 
 This will install ata binary on ~/.local/bin/ and install completion on /etc/bash\_completion.d/
-> :warning: **To change binary installation path you can set the variable BIN_PATH when do installor on environment as the example below.**
+> :warning: **To change binary installation path you can set the variable BIN_PATH when make install on environment as the example below.**
 
 ```bash
 $ make install BIN_PATH=/usr/bin/
