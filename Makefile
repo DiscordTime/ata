@@ -4,7 +4,7 @@ VERSION=v0.0.1
 
 ################## Build Variables ####################
 
-BIN=main
+BIN=ata
 GO_C=go
 
 SRC=main.go
@@ -13,7 +13,7 @@ LD_FLAGS:=-X '$(BIN).Version=$(VERSION)'
 ################# Build Targets #######################
 
 $(BIN): $(SRC)
-	$(GO_C) build -ldflags="$(LD_FLAGS)"
+	$(GO_C) build -ldflags="$(LD_FLAGS)" -o $@
 
 ################ PHONY Targets ##################
 
